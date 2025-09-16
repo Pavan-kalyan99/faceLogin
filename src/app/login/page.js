@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import FaceAuth from "../components/FaceAuth";
 import { supabase } from "../lib/supabaseClient";
+import Link from "next/link";
 
 const HOLD_FRAMES = 3;
 
@@ -135,6 +136,21 @@ export default function Login() {
           🔄 Try Again
         </button>
       )}
+
+<div className="w-full flex justify-center gap-4 mt-auto pb-6">
+    <Link
+      href="/"
+      className="px-4 py-2 bg-blue-600 rounded-xl text-white font-semibold shadow-md hover:bg-blue-700 transition text-sm sm:text-base"
+    >
+      🏠 Home
+    </Link>
+    <Link
+      href="/register"
+      className="px-4 py-2 bg-green-600 rounded-xl text-white font-semibold shadow-md hover:bg-green-700 transition text-sm sm:text-base"
+    >
+      📝 Register
+    </Link>
+</div>
     </div>
   );
 }
