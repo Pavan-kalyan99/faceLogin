@@ -1,9 +1,14 @@
 "use client";
 import React from "react";
-export default function Dashboard() {
- 
-  const username = localStorage.getItem("face_username");
+import { useEffect, useState } from "react";
 
+export default function Dashboard() {
+   const [username, setUsername] = useState(null);
+
+ useEffect(() => {
+    const storedUser = localStorage.getItem("face_username");
+    setUsername(storedUser);
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
