@@ -184,11 +184,12 @@ export default function Register() {
         const dLeft = stableDistance(storedLeft, profileRef.current.left);
         const dRight = stableDistance(storedRight, profileRef.current.right);
 
-  console.log("Checking profile ID:", p.id, {
-    dCenter,
-    dLeft,
-    dRight,
-  });
+        // checking the face properties
+  // console.log("Checking profile ID:", p.id, {
+  //   dCenter,
+  //   dLeft,
+  //   dRight,
+  // });
 
         // require 2 out of 3 poses to match under threshold
         let matches = 0;
@@ -198,7 +199,8 @@ export default function Register() {
         if (dRight < THRESH) matches++;
 
         if (matches >= 2) {
-              console.log("✅ Duplicate detected with profile ID:", p.id);
+              // console.log("✅ Duplicate detected with profile ID:", p.id);
+              // console.log('dup name::',p.username);
 
           duplicate = p;
           break;
@@ -206,6 +208,7 @@ export default function Register() {
       }
 
       if (duplicate) {
+        // console.log('user found::',duplicate);
         setInstruction("⚠️ Face already registered. Redirecting to login...");
         setTimeout(() => router.push("/login"), 1500);
         setSaving(false);
